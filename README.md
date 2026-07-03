@@ -1,6 +1,6 @@
 # PriceBench Evaluation Codebase
 
-This repository contains the benchmark dataset, reproducible evaluation pipeline, and experimental results for the PriceBench paper (NeurIPS 2026 Datasets & Benchmarks Track submission).
+This repository contains the benchmark dataset, reproducible evaluation pipeline, and experimental results for the PriceBench paper (KDD 2027 submission).
 
 > **PriceBench: Do LLMs Understand Prices, or Just Memorize Them?**
 

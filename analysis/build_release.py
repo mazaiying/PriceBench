@@ -357,7 +357,7 @@ README = """\
 This directory contains the complete experimental results for the paper:
 
 > **PriceBench: Do LLMs Understand Prices, or Just Memorize Them?**  
-> NeurIPS 2026 Datasets & Benchmarks Track (under review)
+> KDD 2027 (under review)
 
 ## Directory Structure
 
@@ -406,11 +406,10 @@ results_release/
 ## Citation
 
 ```bibtex
-@inproceedings{pricebench2026,
+@inproceedings{pricebench2027,
   title     = {PriceBench: Do LLMs Understand Prices, or Just Memorize Them?},
-  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
-  year      = {2026},
-  note      = {Datasets and Benchmarks Track}
+  booktitle = {ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD)},
+  year      = {2027}
 }
 ```
 """
