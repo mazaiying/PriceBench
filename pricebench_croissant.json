@@ -1,0 +1,143 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "sc": "https://schema.org/"
+  },
+  "@type": "sc:Dataset",
+  "name": "PriceBench",
+  "description": "PriceBench is the first benchmark designed to evaluate LLMs on software investment price review—the task of determining whether a proposed budget represents fair market value. It comprises 851 real-world IT procurement expert records across six structured evaluation tasks (direction classification, reduction rate estimation, price estimation, category classification, anomaly detection, and specification change detection), plus a 651-item cross-domain diagnostic set spanning electronics, used cars, luxury goods, and appliances labeled with popularity gradients to probe training-data memorization.",
+  "url": "https://anonymous.4open.science/r/PriceBench-0BA8",
+  "version": "1.0.0",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "isAccessibleForFree": true,
+  "inLanguage": "zh",
+  "keywords": [
+    "large language models",
+    "benchmark",
+    "price estimation",
+    "IT procurement",
+    "memorization",
+    "evaluation",
+    "domain knowledge"
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "Anonymous (for review)"
+  },
+  "datePublished": "2026-01-01",
+  "citation": "Anonymous Authors. PriceBench: Do LLMs Understand Prices, or Just Memorize Them? In ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD) 2027.",
+  "cr:citeAs": "Anonymous Authors. PriceBench: Do LLMs Understand Prices, or Just Memorize Them? In ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD) 2027.",
+  "cr:conformsTo": "http://mlcommons.org/croissant/1.0",
+
+  "rai:dataCollection": "The IT procurement dataset (bench_v2.json) comprises 851 real expert-reviewed procurement records collected from institutional IT purchasing audits spanning 2022-2025. Ground truth prices reflect auditor-verified fair market values. The cross-domain consumer dataset (651 items) was collected via structured web queries targeting Chinese e-commerce platforms in Q1 2026, with popularity labels assigned based on estimated training-data coverage using proxy signals (search volume, product listing counts).",
+  "rai:dataCollectionType": "Observational",
+  "rai:dataCollectionMissingData": "Some IT procurement records have empty specification fields (spec_original or spec_reduced) where the original procurement documentation did not include detailed technical specifications. These are retained to preserve real-world distribution; models are expected to handle missing specifications gracefully.",
+  "rai:dataBiases": "The IT procurement subset reflects the composition of large-scale institutional IT spending and is not uniformly distributed across procurement categories (equipment 49.7%, services 23.5%, data engineering 13.2%, software 9.6%, operations 4.7%). Consumer items are drawn from the Chinese market only and may not generalize to other markets. Popularity labels are estimated proxies and may not perfectly reflect actual LLM training-data coverage.",
+  "rai:dataUseCases": "PriceBench is intended for research purposes only: evaluating and benchmarking LLM capabilities on domain-specific price estimation tasks. It should not be used to make actual procurement decisions or as a substitute for professional price auditing.",
+  "rai:personalSensitiveInformation": "The IT procurement dataset has been de-identified: all records are stripped of project names, contractor names, and procuring institution identifiers. No personally identifiable information (PII) is present. Sensitive product category identifiers have been redacted from item names and specifications.",
+  "rai:annotationsPerItem": "Each IT procurement item includes expert-reviewed ground truth prices (unit price and total price after audit), adjustment rate, and direction of change (increase/decrease/unchanged), validated by certified procurement auditors.",
+  "rai:dataLimitations": "PriceBench has three key limitations. (1) Geographic scope: the IT procurement subset reflects Chinese institutional procurement practices (2022-2025) and the consumer subset is sourced exclusively from Chinese markets; performance may not generalize to other jurisdictions or markets. (2) Temporal coverage: prices reflect market conditions through early 2026 and may not capture subsequent price changes or supply-chain shifts. (3) Popularity proxy: the popularity gradient labels (popular/niche) are estimated via search-volume and listing-count proxies rather than direct access to LLM training corpora, and thus represent an approximation of actual training-data coverage.",
+  "rai:dataSocialImpact": "PriceBench supports research into LLM capabilities and limitations in specialized economic domains. Positive impacts include enabling more transparent and evidence-based assessments of AI readiness for high-stakes price auditing tasks, potentially improving accountability in public procurement. Risks include misuse of benchmark results to over-claim LLM competence in actual procurement auditing contexts; we strongly caution against deploying any model benchmarked here as a decision-maker in real audits without additional domain-specific validation and human oversight.",
+  "rai:hasSyntheticData": false,
+
+  "distribution": [
+    {
+      "@type": "sc:FileObject",
+      "@id": "bench_v2_file",
+      "name": "bench_v2.json",
+      "description": "IT procurement benchmark dataset: 851 expert-reviewed procurement records with original and audited prices.",
+      "contentUrl": "https://anonymous.4open.science/r/PriceBench-0BA8/dataset/it_procurement/bench_v2.json",
+      "encodingFormat": "application/json",
+      "sha256": "3c9d90455fc164a301b13d69d6ac91d336f62a4a1c7dfe807c1953fe41309381"
+    },
+    {
+      "@type": "sc:FileObject",
+      "@id": "electronics_file",
+      "name": "electronics_raw.json",
+      "description": "Consumer electronics dataset: 195 items with popularity gradient labels.",
+      "contentUrl": "https://anonymous.4open.science/r/PriceBench-0BA8/dataset/cross_domain/electronics_raw.json",
+      "encodingFormat": "application/json",
+      "sha256": "299836f45eb06329f8ce1f50d3d2cffc7c86148d7a02d0b96cf4ea59ab7d1f05"
+    },
+    {
+      "@type": "sc:FileObject",
+      "@id": "appliances_file",
+      "name": "appliances_raw.json",
+      "description": "Home appliances dataset: 145 items with popularity gradient labels.",
+      "contentUrl": "https://anonymous.4open.science/r/PriceBench-0BA8/dataset/cross_domain/appliances_raw.json",
+      "encodingFormat": "application/json",
+      "sha256": "00cac051961e6a572d5b8aecdc827372efa911c6479ed792ce96d5ca8d786c40"
+    },
+    {
+      "@type": "sc:FileObject",
+      "@id": "luxury_file",
+      "name": "luxury_goods_raw.json",
+      "description": "Luxury goods dataset: 155 items with popularity gradient labels.",
+      "contentUrl": "https://anonymous.4open.science/r/PriceBench-0BA8/dataset/cross_domain/luxury_goods_raw.json",
+      "encodingFormat": "application/json",
+      "sha256": "b092612619cc9ae9df599ae7d6f5e3dcee1f7c2b32aac6d3177df0016e3a0ffb"
+    },
+    {
+      "@type": "sc:FileObject",
+      "@id": "used_cars_file",
+      "name": "used_cars_raw.json",
+      "description": "Used cars dataset: 156 items with popularity gradient labels.",
+      "contentUrl": "https://anonymous.4open.science/r/PriceBench-0BA8/dataset/cross_domain/used_cars_raw.json",
+      "encodingFormat": "application/json",
+      "sha256": "98566be022c8f844c8fb21cdc0df968aece5caa4f82d3ca37c4bbe5fbb0eddb8"
+    }
+  ],
+
+  "cr:recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "it_procurement_records",
+      "name": "IT Procurement Records",
+      "description": "Expert-reviewed IT procurement line items with ground-truth prices and evaluation labels for Tasks A-F.",
+      "cr:source": {"@id": "bench_v2_file"},
+      "cr:field": [
+        {"@type": "cr:Field", "name": "sample_id", "description": "Unique item identifier (e.g., S0001).", "cr:dataType": "sc:Text"},
+        {"@type": "cr:Field", "name": "item_name", "description": "Name of the procured item or service (Chinese).", "cr:dataType": "sc:Text"},
+        {"@type": "cr:Field", "name": "spec_original", "description": "Original quoted technical specification (Chinese).", "cr:dataType": "sc:Text"},
+        {"@type": "cr:Field", "name": "spec_reduced", "description": "Auditor-revised specification after review (Chinese).", "cr:dataType": "sc:Text"},
+        {"@type": "cr:Field", "name": "unit", "description": "Unit of measurement for the item.", "cr:dataType": "sc:Text"},
+        {"@type": "cr:Field", "name": "qty_original", "description": "Original quoted quantity.", "cr:dataType": "sc:Number"},
+        {"@type": "cr:Field", "name": "qty_reduced", "description": "Auditor-approved quantity.", "cr:dataType": "sc:Number"},
+        {"@type": "cr:Field", "name": "unit_price_original", "description": "Original quoted unit price (Wan Yuan, i.e., 10,000 CNY).", "cr:dataType": "sc:Number"},
+        {"@type": "cr:Field", "name": "unit_price_reduced", "description": "Auditor-approved unit price (Wan Yuan).", "cr:dataType": "sc:Number"},
+        {"@type": "cr:Field", "name": "total_original", "description": "Original quoted total price (Wan Yuan).", "cr:dataType": "sc:Number"},
+        {"@type": "cr:Field", "name": "total_reduced", "description": "Auditor-approved total price (Wan Yuan).", "cr:dataType": "sc:Number"},
+        {"@type": "cr:Field", "name": "adjustment_rate", "description": "Fractional change: (total_original - total_reduced) / total_original.", "cr:dataType": "sc:Number"},
+        {"@type": "cr:Field", "name": "direction", "description": "Direction of price adjustment: increase, decrease, or unchanged.", "cr:dataType": "sc:Text"},
+        {"@type": "cr:Field", "name": "category", "description": "Procurement category (e.g., equipment, software, services).", "cr:dataType": "sc:Text"},
+        {"@type": "cr:Field", "name": "project_id", "description": "Anonymized project identifier grouping items from the same procurement project.", "cr:dataType": "sc:Text"}
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "cross_domain_records",
+      "name": "Cross-Domain Consumer Records",
+      "description": "Consumer product records across four domains with popularity gradient labels for diagnostic analysis.",
+      "cr:source": [
+        {"@id": "electronics_file"},
+        {"@id": "appliances_file"},
+        {"@id": "luxury_file"},
+        {"@id": "used_cars_file"}
+      ],
+      "cr:field": [
+        {"@type": "cr:Field", "name": "item_name", "description": "Product name (Chinese).", "cr:dataType": "sc:Text"},
+        {"@type": "cr:Field", "name": "category", "description": "Product category.", "cr:dataType": "sc:Text"},
+        {"@type": "cr:Field", "name": "specs", "description": "Product specifications.", "cr:dataType": "sc:Text"},
+        {"@type": "cr:Field", "name": "brand", "description": "Brand name.", "cr:dataType": "sc:Text"},
+        {"@type": "cr:Field", "name": "price", "description": "Ground truth market price (CNY).", "cr:dataType": "sc:Number"},
+        {"@type": "cr:Field", "name": "currency", "description": "Currency code (CNY).", "cr:dataType": "sc:Text"},
+        {"@type": "cr:Field", "name": "market", "description": "Market/region (e.g., CN).", "cr:dataType": "sc:Text"},
+        {"@type": "cr:Field", "name": "popularity", "description": "Popularity gradient label: popular or niche, indicating estimated LLM training-data coverage.", "cr:dataType": "sc:Text"},
+        {"@type": "cr:Field", "name": "domain", "description": "Domain label: electronics / appliances / luxury_goods / used_cars.", "cr:dataType": "sc:Text"}
+      ]
+    }
+  ]
+}
